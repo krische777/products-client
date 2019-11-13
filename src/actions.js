@@ -1,7 +1,7 @@
 import request from 'superagent'
 export const GET_PRODUCTS = 'GET_PRODUCTS'
 export const ADD_PRODUCTS='ADD_PRODUCTS'
-const url = 'http://localhost:5555'
+const url = 'http://localhost:4000'
 
 function getProductsAction(payload) {
     return {

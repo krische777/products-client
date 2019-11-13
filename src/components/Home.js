@@ -18,14 +18,14 @@ class Home extends Component {
 
                 <p>Add new ads. Every registered and logged in user can add new ads</p>
 
-                {/*<div className='eventConatiner'>{this.props.productState.map((product, index)=>*/}
-                {/*    <div className='eventClass' key={index}><p></p>*/}
-                {/*        <p>Product type: {product.productType}</p>*/}
-                {/*        <p>Description: {product.description}</p>*/}
-                {/*        <img className='img' src={product.picture} alt='pic' />*/}
+                <div >{this.props.productState.map((product, index)=>
+                    <div className='eventClass' key={index}><p></p>
+                        <p>Product type: {product.productType}</p>
+                        <p>Description: {product.description}</p>
+                        <img className='img' src={product.picture} alt='pic' />
 
-                {/*        <Link to={`/product/${product.id}/items`}>View all ads for {product.productType}</Link>*/}
-                {/*    </div>)}</div>*/}
+                        <Link to={`/product/${product.id}/items`}>View all ads for {product.productType}</Link>
+                    </div>)}</div>
             </div>
         )
     }
@@ -35,7 +35,7 @@ const mapStateToProps = (state) => {
     console.log(state)
 
     return {
-        productState: state.productReducer
+        productState: state.productsReducer
     }
 }
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getProducts } from '../actions'
+
 class Home extends Component {
 
     componentDidMount() {
@@ -11,21 +12,33 @@ class Home extends Component {
     render() {
 
         return (
-            <div className="homepage-wrapper">
-                <h1>The best online products in one place</h1>
+            <div style={{textAlign: "center",
+                justifyContent: "center"}}>
+                <h1 style={{ color: "#ccffda"}}>The best online products in one place</h1>
 
-                <p>See our offers</p>
+                <p style={{ color: "#ccffda"}}>Add new ads. Every registered and logged in user can add new ads</p>
+                <div style={{
+                    display:"flex",
+                    flexDirection:"row",
+                    flexWrap:"wrap",
+                    flexFlow: "row wrap",
+                    flex: "1 0 auto",
+                    marginLeft:"50px",
+                    marginRight:"50px",
+                    justifyContent: "center"}}>
+                {this.props.productState.map((product, index)=>
+                    <div className="card" style={{width: "18rem", backgroundColor: "#ccffda", margin: "10px"}}>
+                    <div class="card-body" key={index}
+                         style={{padding:"0px"}}><p></p>
+                        <img style={{ height: "10rem"}} className="card-img-top" src={product.picture} alt="Card image cap" />
+                        < h5 class="card-title">Product type: {product.productType}</h5>
+                        <p class="card-text">Description: {product.description}</p>
 
-                <p>Add new ads. Every registered and logged in user can add new ads</p>
+                        {/*<img className='img' src={product.picture} alt='pic' />*/}
+                        {/*    <a href="#" className="btn btn-primary">View all ads for {product.productType}</a>*/}
+                            <Link to={`/product/${product.id}/items`} className="btn btn-primary">View all ads for {product.productType}</Link>
+                    </div></div>)}</div>
 
-                <div >{this.props.productState.map((product, index)=>
-                    <div className='eventClass' key={index}><p></p>
-                        <p>Product type: {product.productType}</p>
-                        <p>Description: {product.description}</p>
-                        <img className='img' src={product.picture} alt='pic' />
-
-                        <Link to={`/product/${product.id}/items`}>View all ads for {product.productType}</Link>
-                    </div>)}</div>
             </div>
         )
     }

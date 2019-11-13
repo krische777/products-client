@@ -15,7 +15,7 @@ class App extends React.Component {
         return (
             <Provider store={store}>
                 <div className="App">
-                    <header className="header">
+                    <header className="header" style={{textAlign: "right", lineHeight: "2"}}>
                         <button><Link to="/">HOME</Link></button>
                         <button><Link to="/signup">SIGN UP</Link></button>
                         <button><Link to="/login">LOG IN</Link></button>
